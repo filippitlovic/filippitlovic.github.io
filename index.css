@@ -1,0 +1,1329 @@
+* {
+    margin:0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+html{
+    font-size: 62.5%; /* 1 rem = 10 px --- to sam apravio da se moze skalirat*/
+}
+body{
+    background: #000;
+}
+
+nav{
+    top:0;
+    left:0;
+    z-index:999;
+    width: 100%;
+    position: fixed;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    transition: 0.6s;
+    padding: 4px 40px;
+}
+.brand-title{
+    margin-top: 5px;
+    /* font-size: 2.5rem;
+    margin: 1.5rem;
+    position: relative;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    transition: 0.4s;
+    letter-spacing: 2px; */
+}
+.brand-title img{
+    width:7rem;
+    height: 7rem;
+}
+
+
+nav ul{
+    padding-right: 80px;
+    background: rgba(0, 0, 0, 0);
+    color: white;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul li{
+    position: relative;
+    list-style: none;
+}
+
+nav li a{
+    margin: 0 15px;
+    transition: 0.4s;
+    letter-spacing: 2px;
+    position: relative;
+    text-decoration: none;
+    color: white;
+    font-size: 2rem;
+}
+nav li a:hover{
+    color:red;
+}
+nav.black {
+    background:rgba(0, 0, 0, 0.9);
+}
+
+
+.izbornik{
+    width: 3rem;
+    height: 3rem;
+    position: fixed;
+    top:3rem;
+    right: 5rem;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    cursor: pointer;
+    transition: right .7s;
+}
+
+.change .izbornik{
+    right: 33rem;
+}
+
+.line{
+    width: 100%;
+    height: 0.3rem;
+    background-color: rgb(255, 255, 255);
+    box-shadow:0 0.4rem 0.6rem rgba(0,0,0,0.2);
+}
+
+.change .line{
+    background-color:rgba(235, 164, 255, 0.9);
+}
+
+.change .line-1{
+    transform:rotate(45deg)
+    translate(0.4rem,1rem);
+}
+
+.change .line-2{
+    opacity: 0;
+    visibility: hidden;
+}
+.change .line-3{
+
+    transform:rotate(-45deg)
+    translate(0.4rem,-1rem);
+}
+
+@media(min-width:850px) {
+    .izbornik{
+        /*display: none;*/
+    }
+}
+@media(max-width:849px){
+
+    .navbar-links{
+        width: 100%;
+        display: none;
+    }
+}
+
+
+
+.header{
+    width: 100%;
+    height: 110vh; /* visina je 100% od view pointa*/
+    background-color: rgba(0,0,0);
+}
+
+.img-wrapper{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    overflow: hidden; 
+    background:url(images/image7.jpg) repeat fixed 100%;
+    background-size: cover;
+    background-position: top;
+    /*animation: scale 15s;*/
+    opacity: 0.9;
+}
+/* 
+.img-wrapper img{
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position:top;
+    opacity: 0.8;
+    animation: scale 15s;
+}
+ */
+@keyframes scale{
+    0%{
+        transform: scale(1.2);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+.naslov{
+    position: absolute;
+    top: 30%;
+    left: 5%;
+}
+
+.naslov h1 {
+    font-family: "Baloo Da 2",
+    serif;
+    font-size: 11rem;
+    font-weight: 300;
+    color: white;
+    width: 50%;
+    line-height: 11rem;
+    letter-spacing: 1rem;
+    text-shadow: 0.3rem .5rem rgba(0,0,0,0.4);
+    animation: text 6s 1 0.1s;
+}
+
+.naslov p {
+    font-family: "Josefin Slab",serif;
+    font-size: 7rem;
+    color: white;
+    margin-top: 5rem;
+    letter-spacing: 1rem;
+    text-shadow: 0.3rem .5rem rgba(0,0,0,0.4);
+    animation: text 6s 1 0.1s;
+    
+}
+
+@keyframes text{
+    0%{
+        color: rgb(84, 84, 84);
+        margin-bottom: -40px;
+    }
+    30%{
+        letter-spacing: 25px;
+        margin-bottom: -40px;
+    }
+    85%{
+        letter-spacing: 8px;
+        margin-bottom: -40px;
+    }
+}
+
+.sidebar{
+    z-index: 999;
+    width:100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    background-color: white;
+    transition:right .5s;
+}
+.sidebar .zatvori{
+    right:-100%;
+}
+.change .sidebar{
+    right: 0;
+}
+.menu{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+}
+
+.menu-item{
+    text-align: center;
+}
+.menu-link{
+    font-family: 'Baloo Da 2',serif;
+    font-size: 3rem;
+    color: #555;
+    line-height: 2.5em;
+    border-bottom: 0.5px solid #555;
+    position: relative;
+}
+
+.menu-link::before{
+
+    content: attr(data-content);
+    position: absolute;
+    color: #c29525;
+    overflow: hidden;
+    width: 0;
+    white-space: nowrap;
+    transition:width 0.3s ease-in-out;
+    
+}
+
+.menu-link:hover::before{
+    width: 100%;
+}
+
+.social-media{
+    position: absolute;
+    bottom: 3rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.social-media i{
+    font-size: 2.2rem;
+    margin: 3rem;
+    background-color: rgb(56, 56, 56);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 80%;
+    border-style:solid;
+    width: 4rem;
+    height: 4rem;
+    transition:background-color .3s;
+}
+
+.social-media i:hover{
+    background-color:#c29525;
+}
+
+
+/*NASLOVI SVIH SECTIONA**********/
+
+.section-header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 7rem 0 0 0;
+}
+
+.naslov-o-meni{
+    font-family: 'Muli',serif;
+    font-size: 5rem;
+    font-weight: 300;
+    color: #4b4b4b;
+}
+
+.underline{
+    width: 32rem;
+    height: .3rem;
+    background-color: #c29525;
+}
+
+
+
+/***********************DEJAN RADANAC - SECTION *******************/
+
+.dejan{
+    background: url(images/image4.jpg) repeat fixed 100%;
+    background-size: cover;
+    height: 110vh;
+}
+p {
+    display: inline-block;
+    padding: 0.8rem;
+}
+.Pitanje{
+    font-size: 2rem;
+    font-weight: 900;
+    font-family: 'Muli',serif;
+}
+.Odgovor{
+    font-weight: 500;
+    font-size: 2rem;
+    font-family: "Josefin Slab",serif;
+}
+.dejan-slika{
+    background: url(images/image4.jpg) no-repeat left;
+    background-size: 55%;
+    overflow: hidden;
+    margin-left: 5rem;
+    padding: 15rem 5rem;
+}
+.container-opis{
+    width: 60%;
+    float: right;
+    background-color: #faf8f8;
+    padding: 10rem;
+    box-shadow:0 0.4rem 0.6rem rgba(0,0,0,0.8);
+}
+.dejan .section-header{
+    padding: 5rem 0 0 0;
+}
+.dejan .container-opis h2{
+    font-size: 3rem;
+    padding:  0 0 2rem 0.5rem;
+}
+
+.dejan .container-opis a{
+    color: black;
+    font-weight: 600;
+    font-family: "Mulish",serif;
+    font-size: 1.7rem;
+    position: absolute;
+    margin-top: 2%;
+    left: 48.4%;
+    padding: 3px 3px;
+}
+.dejan .container-opis a:hover{
+    color:rgb(130, 130, 255) ;
+}
+
+
+@media screen and (max-width:1200px){
+    .container-opis{
+    padding: 10rem 3rem;
+    }
+}
+@media screen and (max-width:1000px){
+    .dejan-slika{
+    padding: 4rem 2rem;
+    }
+    .container-opis{
+        padding: 80px;
+    }
+}
+
+@media screen and (max-width:600px){
+    .dejan-slika{
+        padding: 0;
+    }
+    .container-opis{
+        padding:60px;
+    }
+}
+
+
+
+
+
+
+/********** REZULTATI NOVA*****************/
+.rezultati{
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rezultati .opis{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 7rem 0 0 0;
+    width:80%;
+    height: 100%;
+}
+
+.rezultati .slika{
+    clip-path: polygon(25% 0%, 100% 0%,100% 100%, 0% 100%);
+    width: 100%;
+    background-size: cover;
+    box-sizing: border-box;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    background-image: url(images/image1.jpg);
+}
+
+
+.rezultati  h1{
+    text-align: center;
+    font-family: 'Muli',serif;
+    font-size: 6rem;
+    font-weight: 300;
+    color: #cdcdcd;
+}
+
+.rezultati .cestovno h1{
+    color: rgb(162, 162, 162);
+    font-size: 4rem;
+    padding-top: 20%;
+    left: 0;
+} 
+.rezultati  .cestovno .text1 {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+    width: 100%;
+    padding: 40px 0;
+    padding-left: 10%;
+    text-align: left;
+    color: #fff;
+    line-height: 4rem;
+    font-weight: bold;
+    font-size: 2rem;
+    font-family: 'Muli',serif;
+}
+.fa-medal {
+    color: #ffd700;
+}
+
+/**************** REZULTATI PLANINSKO NOVO *********************/
+.rezultati2{
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rezultati2 .opis{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 7rem 0 0 0;
+    width:57.5%;
+    height: 100%;
+}
+
+.rezultati2 .slika{
+    background-position: top;
+    clip-path: polygon(0% 0%, 70% 0%,100% 100%, 0% 100%);
+    width: 100%;
+    background-size: cover;
+    box-sizing: border-box;
+    height: 100%;
+    background-image: url(images/image13.jpg);
+}
+
+
+.rezultati2 .underline{
+    margin-right: 40%;
+}
+.rezultati2  h1{
+    text-align: center;
+    font-family: 'Muli',serif;
+    font-size: 6rem;
+    font-weight: 300;
+    padding-right: 40%;
+    color: #cdcdcd;
+}
+
+.rezultati2 .opis h2{
+    color: rgb(162, 162, 162);
+    font-size: 4rem;
+    padding-top: 10%;
+    padding-right: 37%;
+} 
+.rezultati2  .cestovno .text1 {
+    position: absolute;
+    top: 60%;
+    left: 40%;
+    transform:translate(-50%,-50%);
+    width: 100%;
+    padding: 40px 0;
+    padding-left: 10%;
+    text-align: left;
+    color: #fff;
+    line-height: 4rem;
+    font-weight: bold;
+    font-size: 1.9rem;
+    font-family: 'Muli',serif;
+}
+.fa-medal {
+    color: #ffd700;
+}
+.rezultati2 .silver .fa-medal{
+    color: silver;
+}
+
+
+/*.rezultati{
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rezultati .opis{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 7rem 0 0 0;
+    width:100%;
+    height: 100%;
+}
+
+.rezultati .slika{
+    clip-path: polygon(25% 0%, 100% 0%,100% 100%, 0% 100%);
+    width: 100%;
+    background-size: cover;
+    box-sizing: border-box;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    background-image: url(images/image1.jpg);
+}
+
+
+.rezultati  h1{
+    text-align: center;
+    font-family: 'Muli',serif;
+    font-size: 6rem;
+    font-weight: 300;
+    color: #cdcdcd;
+}
+
+.rezultati .cestovno h1{
+    color: rgb(162, 162, 162);
+    font-size: 4rem;
+    padding-top: 20%;
+    left: 0;
+} 
+.rezultati  .cestovno .text1 {
+    
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+    z-index: 5;
+    width: 85%;
+    padding: 40px 0;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-weight: bold;
+    border: 5px inset #fff;
+    font-size: 2rem;
+}*/
+
+/******************** REZULTATI SECTION ***********************************************************/
+
+
+/* .dodatna-klasa{
+    position: relative;
+    width: 100%;
+    height: 60%;
+}
+
+
+
+
+.rezultati2  .planinsko .text1 {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+    
+    z-index: 5;
+    width: 45%;
+    padding: 40px 0;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-weight: bold;
+    border: 5px inset #fff;
+    font-size: 2rem;
+}
+
+.rezultati2{
+    overflow: hidden; 
+    background:url(images/sljeme.jpg) repeat fixed 100%;
+    background-size: cover;
+    background-position: top;
+    background-color:#000000;
+    width: 100%;
+    height: 110vh; 
+}
+
+.rezultati2 .section-header{ 
+    padding: 7rem 0 2rem 0;
+}
+.rezultati2 .section-header .naslov-o-meni{
+    font-family: 'Muli',serif;
+    font-size: 5rem;
+    font-weight: 900;
+    color: #ffffff;
+}
+ */
+
+
+
+/*******************************--------GALERIJA--------************/
+
+.galerija{
+    background: url(images/image14.jpg) repeat fixed 100%;
+    background-position: top;
+    background-size: cover;
+    width: 100%;
+    height: 110vh; /* visina je 100% od view pointa*/
+    position: relative;
+  }
+
+.swiper-container {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    top: 10%;
+}
+
+  .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 45rem;
+    height: 45rem;
+    
+  }
+
+  .swiper-container .swiper-slide .img-box{
+      position: absolute;
+      width: 45rem;
+      height: 37rem;
+  }
+  
+  .swiper-container .swiper-slide .img-box img{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.swiper-container .swiper-slide .content{
+    position: absolute;
+    bottom: 0;
+    height: 80px;
+    width: 100%;
+    background: rgb(255, 255, 255);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-container .swiper-slide .content h3{
+    font-size: 2rem;
+    font-family: 'Baloo Da 2', serif;
+}
+
+.swiper-container .swiper-slide .content h3 span{
+    font-size:  1.5rem;
+    color: rgb(0, 0, 0);
+}
+.swiper-button-prev, .swiper-button-next{
+    color: rgb(255, 255, 255);
+}
+.galerija .section-header .naslov-o-meni{
+    font-weight: 900;
+}
+.galerija .section-header{ 
+    padding: 7rem 0 2rem 0;
+}
+.galerija .section-header .naslov-o-meni{
+    font-family: 'Muli',serif;
+    font-size: 5rem;
+    font-weight: 900;
+    color: #000000;
+}
+
+
+/************************RESPONSIVE***GALERIJA***************************************/
+@media screen and (max-width:1100px){
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 35rem;
+    height: 36rem;
+    
+  }
+  .swiper-container .swiper-slide .img-box{
+      position: absolute;
+      width: 35rem;
+      height: 31rem;
+  }
+  .swiper-container .swiper-slide .img-box img{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.swiper-container .swiper-slide .content{
+    position: absolute;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    background: rgb(255, 255, 255);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-container .swiper-slide .content h3{
+    font-size: 2rem;
+    font-family: 'Baloo Da 2', serif;
+}
+
+.swiper-container .swiper-slide .content h3 span{
+    font-size:  1.4rem;
+    color: rgb(0, 0, 0);
+}
+.swiper-button-prev, .swiper-button-next{
+    color: rgb(255, 255, 255);
+}
+.galerija .section-header .naslov-o-meni{
+    font-weight: 900;
+}
+.galerija .section-header{ 
+    padding: 7rem 0 2rem 0;
+}
+.galerija .section-header .naslov-o-meni{
+    font-family: 'Muli',serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: #000000;
+}
+}
+
+@media screen and (max-width:415px){
+    .galerija{
+        background: url(images/image14.jpg) repeat fixed 100%;
+        background-position: top;
+        background-size: cover;
+        width: 100%;
+        height: 100vh; /* visina je 100% od view pointa*/
+        position: relative;
+      }
+      .swiper-container {
+        width: 100%;
+        padding-top: 60px;
+        padding-bottom: 50px;
+        top: 10%;
+    }
+    .swiper-slide {
+        background-position: center;
+        background-size: cover;
+        width: 26rem;
+        height: 26rem;
+      }
+      .swiper-container .swiper-slide .img-box{
+          position: absolute;
+          width: 26rem;
+          height: 21rem;
+      }
+      .swiper-container .swiper-slide .img-box img{
+        position: absolute;
+        top:0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .swiper-container .swiper-slide .content{
+        position: absolute;
+        bottom: 0;
+        height: 50px;
+        width: 100%;
+        background: rgb(255, 255, 255);
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .swiper-container .swiper-slide .content h3{
+        font-size: 1.5rem;
+        font-family: 'Baloo Da 2', serif;
+    }
+    
+    .swiper-container .swiper-slide .content h3 span{
+        font-size:  1.4rem;
+        color: rgb(0, 0, 0);
+    }
+    .swiper-button-prev, .swiper-button-next{
+        color: rgb(255, 255, 255);
+    }
+    .galerija .section-header .naslov-o-meni{
+        font-weight: 900;
+    }
+    .galerija .section-header{ 
+        padding: 7rem 0 2rem 0;
+    }
+    .galerija .section-header .naslov-o-meni{
+        font-family: 'Muli',serif;
+        font-size: 3rem;
+        font-weight: 900;
+        color: #000000;
+    }
+    }
+
+/******************************** FOOTER *******************************/
+
+.footer{
+    background: rgb(0, 0, 0);
+}
+.footer .footer-content{
+    position: relative;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+}
+
+.sponzori , .klubovi{
+    width: 40%;
+}
+.face{
+    width: 20%;
+}
+
+
+footer .footer-content .footer-section{
+    /*flex:1;*/
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+
+.footer .footer-content h2{
+    font-size: 3.124rem;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.sponzori , .klubovi{
+    width: 40%;
+}
+.face{
+    width: 20%;
+}
+/***********SPONZORI*****************************************/
+
+.footer .footer-section .sponzori{
+    position: relative;
+    width: 100%;
+    display: flex;
+    overflow:hidden;
+}
+.footer .prvi{
+    margin-top: 2%;
+    display: flex;
+}
+.footer .drugi{
+    display: flex;
+}
+.footer .drugi p{
+    color: white;
+}
+.footer .fiziofit{
+    margin-left: 60px;
+}
+.footer .almagea{
+    margin-left: 20px;
+}
+.footer .saucony{
+    margin-left: 50px;
+}
+.footer .garmin{
+    margin-left: 30px;
+}
+.almagea img{
+    width: 25rem;
+    height: 15rem;
+    border-radius: 2rem;
+}
+.fiziofit img{
+    border-radius: 2rem;
+    width: 15rem;
+    height: 15rem;
+}
+.saucony img{
+    width: 20rem;
+    height: 17rem;
+}
+.garmin img{
+    width: 20rem;
+    height: 17rem;
+}
+/*****************KLUBOVI*************************************/
+
+.footer .footer-section .klubovi{
+    display: flex;
+    position: relative;
+}
+
+.footer .logo{
+    top: 8%;
+    margin-left: 70px;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+}
+
+.footer a:hover{
+    color: violet;
+}
+.kotlich{
+    padding-top: 18px;
+}
+
+.footer p{
+    margin-top: 80px;
+    padding-left: 60%;
+    float: right;
+}
+
+.footer p a{
+    text-align: center;
+    font-size: 2rem;
+    font-style: italic;
+    color: white;
+}
+.aksljeme img{
+    width: 12rem;
+    height: 12rem;
+}
+
+.kotlich img{
+    border-radius: 80px;
+    width: 12rem;
+    height: 12rem;
+}
+
+.footer .footer-social{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 3rem;
+}
+.footer .footer-social i{
+    font-size: 1.7rem;
+    margin: 3rem;
+    background-color: rgb(56, 56, 56);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 80%;
+    border-style:solid;
+    width: 4rem;
+    height: 4rem;
+    transition:background-color .3s;
+}
+
+.footer .footer-social i:hover{
+    background-color:#c29525;
+}
+.footer .face .fb-page {
+}
+/************************RESPONSIVE***FOOTER************************/
+@media screen and (min-width:850px) {
+    .sponzori , .klubovi{
+        width: 35%;
+    }
+    .face{
+        width: 30%;
+    }
+}
+@media(max-width:750px){
+    .sponzori , .klubovi , .face{
+        width: 100%;
+    }
+    .footer-content{
+        flex-direction: column;
+    }
+}
+
+
+@media screen and (max-width:1458px){
+ 
+.footer .fiziofit{
+    margin-left: 50px;
+}
+.footer .almagea{
+    margin-left: 10px;
+}
+.footer .saucony{
+    margin-left: 40px;
+}
+.footer .garmin{
+    margin-left: 20px;
+}
+.almagea img{
+    width: 20rem;
+    height: 10rem;
+    border-radius: 2rem;
+}
+.fiziofit img{
+    border-radius: 2rem;
+    width: 10rem;
+    height: 10rem;
+}
+.saucony img{
+    width: 15rem;
+    height: 13rem;
+}
+.garmin img{
+    width: 15rem;
+    height: 13rem;
+}   
+}
+
+@media screen and (max-width:1354px){
+    .footer .footer-section .klubovi{
+        display: flex;
+        position: relative;
+    }
+    
+    .footer .logo{
+        top: 8%;
+        margin-left: 40px;
+        display: flex;
+        position: relative;
+        flex-direction: column;
+    }
+    
+    .footer a:hover{
+        color: violet;
+    }
+    .kotlich{
+        padding-top: 18px;
+    }
+    
+    .footer p{
+        margin-top: 80px;
+        padding-left: 60%;
+        float: right;
+    }
+    
+    .footer p a{
+        text-align: center;
+        font-size: 1.5rem;
+        font-style: italic;
+        color: white;
+    }
+    .aksljeme img{
+        width: 12rem;
+        height: 12rem;
+    }
+    
+    .kotlich img{
+        border-radius: 80px;
+        width: 12rem;
+        height: 12rem;
+    }
+    
+    .footer .footer-social{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding-top: 3rem;
+    }
+    .footer .footer-social i{
+        font-size: 1.7rem;
+        margin: 3rem;
+        background-color: rgb(56, 56, 56);
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 80%;
+        border-style:solid;
+        width: 4rem;
+        height: 4rem;
+        transition:background-color .3s;
+    }
+    
+    .footer .footer-social i:hover{
+        background-color:#c29525;
+    }
+}
+@media screen and (max-width:1138px){
+    .footer .footer-section .klubovi{
+        display: flex;
+        position: relative;
+    }
+    
+    .footer .logo{
+        top: 8%;
+        margin-left: 40px;
+        display: flex;
+        position: relative;
+        flex-direction: column;
+    }
+    
+    .footer a:hover{
+        color: violet;
+    }
+    .kotlich{
+        padding-top: 18px;
+    }
+    
+    .footer p{
+        margin-top: 60px;
+        padding-left: 60%;
+        float: right;
+    }
+    
+    .footer p a{
+        text-align: center;
+        font-size: 1.5rem;
+        font-style: italic;
+        color: white;
+    }
+    .aksljeme img{
+        width: 8rem;
+        height: 8rem;
+    }
+    
+    .kotlich img{
+        border-radius: 60px;
+        width: 8rem;
+        height: 8rem;
+    }
+    
+    .footer .footer-social{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding-top: 3rem;
+    }
+    .footer .footer-social i{
+        font-size: 1.7rem;
+        margin: 3rem;
+        background-color: rgb(56, 56, 56);
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 80%;
+        border-style:solid;
+        width: 4rem;
+        height: 4rem;
+        transition:background-color .3s;
+    }
+    
+    .footer .footer-social i:hover{
+        background-color:#c29525;
+    }
+
+    .footer .fiziofit{
+        margin-left: 50px;
+    }
+    .footer .almagea{
+        margin-left: 10px;
+    }
+    .footer .saucony{
+        
+        padding-top: 30px;
+        margin-left: 40px;
+    }
+    .footer .garmin{
+        padding-top: 30px;
+        margin-left: 20px;
+    }
+    .almagea img{
+        width: 12rem;
+        height: 8rem;
+        border-radius: 2rem;
+    }
+    .fiziofit img{
+        border-radius: 2rem;
+        width: 9rem;
+        height: 9rem;
+    }
+    .saucony img{
+        width: 11rem;
+        height: 8rem;
+    }
+    .garmin img{
+        width: 11rem;
+        height: 8rem;
+    } 
+}
+
+@media screen and (max-width:996px){
+    .footer .footer-section .klubovi{
+        display: flex;
+        position: relative;
+    }
+    
+    .footer .logo{
+        top: 8%;
+        margin-left: 20px;
+        display: flex;
+        position: relative;
+        flex-direction: column;
+    }
+    
+    .footer a:hover{
+        color: violet;
+    }
+    .kotlich{
+        padding-top: 18px;
+    }
+    
+    .footer p{
+        margin-top: 60px;
+        padding-left: 60%;
+        float: right;
+    }
+    
+    .footer p a{
+        text-align: center;
+        font-size: 1.2rem;
+        font-style: italic;
+        color: white;
+    }
+    .aksljeme img{
+        width: 7rem;
+        height: 7rem;
+    }
+    
+    .kotlich img{
+        border-radius: 80px;
+        width: 7rem;
+        height: 7rem;
+    }
+    
+    .footer .footer-social{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding-top: 3rem;
+    }
+    .footer .footer-social i{
+        font-size: 1.2rem;
+        margin: 3rem;
+        background-color: rgb(56, 56, 56);
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 80%;
+        border-style:solid;
+        width: 3rem;
+        height: 3rem;
+        transition:background-color .3s;
+    }
+    
+    .footer .footer-social i:hover{
+        background-color:#c29525;
+    }
+}

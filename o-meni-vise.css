@@ -1,0 +1,26 @@
+body{
+    width: 100%;
+    height: 30rem; 
+    overflow: hidden; 
+    background:url(images/image7.jpg) repeat fixed 100%;
+    background-size: cover;
+    color: rgb(234, 234, 234);
+}
+.omeni{
+    height: 30vh;
+    width: 100%;
+    }
+.omeni h2{
+    font-size: 4rem;
+    text-align: center;
+}
+
+.opis{
+    font-size: 1.2rem;
+    color: black;
+    padding: 10rem;
+    box-shadow:0 0.4rem 0.6rem rgba(0,0,0,0.8);
+    width: 100%;
+    height: 80vh;
+    background-color:white ;
+}

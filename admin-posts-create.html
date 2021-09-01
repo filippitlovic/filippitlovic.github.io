@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="admin-posts-css.css">
+    <title>Admin - Add post</title>
+</head>
+<body>
+    <div class="admin-wrapper">
+        <div class="left-sidebar">
+            <ul>
+            
+                <li><a href="index.html">Manage Posts</a></li>
+                <li><a href="../posts/index.html">Manage Users</a></li>
+            </ul>
+        </div>
+        <div class="admin-content">
+            <div class="button-group">
+                <a href="admin-posts-create.html" class="btn btn-big">Add Post</a>
+                <a href="admin-posts-index.html" class="btn btn-big">Manage Posts</a>  
+            </div>
+            <div class="content">
+                <h2 class="page-title">Manage Posts</h2>
+               <form action="admin-posts-create.html" method="post">
+                   <div>
+                       <label>Title</label>
+                       <input type="text" name="title" id="" class="text-input">
+                   </div>
+                   <div>
+                         <label>Body</label>
+                         <textarea name="body" id="body"></textarea>
+                    </div>
+                    <div>
+                    <div>
+                        <label>Image</label>
+                        <input type="file" name="image" class="text-input">
+                    </div>
+                        <button type="submit" class="btn btn-big">Submit post</button>
+                    </div>
+               </form>
+            </div>
+        </div>
+    </div>
+    
+</body>
+<script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>
+<script src="script.js"></script>
+<script>ClassicEditor
+    .create( document.querySelector( '#body' ), {
+        toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote' ],
+        heading: {
+            options: [
+                { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
+                { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
+                { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' }
+            ]
+        }
+    } )
+    .catch( error => {
+        console.log( error );
+    } );</script>
+</html>
